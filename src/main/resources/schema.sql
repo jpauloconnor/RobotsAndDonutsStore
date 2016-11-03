@@ -8,3 +8,12 @@ CREATE TABLE IF NOT EXISTS robotsanddonuts.products (
   product_manufacturer VARCHAR(45) NOT NULL,
   product_price DECIMAL NOT NULL,
   PRIMARY KEY (id));
+
+  CREATE TABLE IF NOT EXISTS robotsanddonuts.customers (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(16) NOT NULL,
+  last_name VARCHAR(16) NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  phone_number VARCHAR(15) NOT NULL,
+  PRIMARY KEY (id));
+

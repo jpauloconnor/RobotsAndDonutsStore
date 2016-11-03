@@ -23,7 +23,6 @@ public class Product {
 	@Size(max = 16)
 	private String productManufacturer;
 
-	@Size(max = 16)
 	private double productPrice;
 
 	public long getId() {
