@@ -27,9 +27,9 @@
 				<td th:text="${p.productName}"></td>
 				<td th:text="${p.productPrice}"></td>
 				<td th:text="${p.productManufacturer}"></td>
-				<td><a class="btn btn-default" href="/" th:href="@{|/product/${p.id}}" role="button">View</a></td>
-				<td><a class="btn btn-primary" href="/" th:href="@{|/product/${p.id}/edit|}" role="button">Edit</a></td>
-				<td><a class="btn btn-success" href="/" th:href="@{|/product/${p.id}/delete|}" role="button">Delete</a></td>
+				<td><a class="btn btn-primary" href="/" th:href="@{|/product/${p.id}}" role="button">View</a></td>
+				<td><a class="btn btn-success" href="/" th:href="@{|/product/${p.id}/edit|}" role="button">Edit</a></td>
+				<td><a class="btn btn-info" href="/" th:href="@{|/product/${p.id}/delete|}" role="button">Delete</a></td>
 
 			</tr>
 		</tbody>

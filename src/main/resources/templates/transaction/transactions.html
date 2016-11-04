@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layouts/basic">
 <head>
-<title>Getting Started: Serving Web Content</title>
+<title>Transaction Details</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
@@ -12,26 +12,27 @@
 			<thead>
 				<tr>
 					<th>UPC</th>
+					<th>Customer Last Name</th>
+					<th>Email</th>
 					<th>Product Name</th>
-					<th>Manufacturer</th>
-					<th>Price</th>
+					<th>Product Price</th>
+					
+					
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="p : ${product}">
-					<td th:text="${p.upc}"></td>
-					<td th:text="${p.productName}"></td>
-					<td th:text="${p.productManufacturer}"></td>
-					<td th:text="${p.productPrice}"></td>
+				<tr th:each="t : ${transactions}">
+					<td th:text="${t.product.upc}"></td>
+ 					<td th:text="${t.customer.lastName}"></td>
+					<td th:text="${t.customer.email}"></td>
+					<td th:text="${t.product.productName}"></td>
+					<td th:text="${t.product.productPrice}"></td> 
 				</tr>
 			</tbody>
 		</table>
-		<div th:unless="${product}">
-			<h1>Product not found</h1>
-		</div>
 	</div>
 </body>
 </html>

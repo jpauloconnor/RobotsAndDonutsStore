@@ -18,14 +18,15 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerRepository customerRepo;
-	
 
+	// Gets all customers
 	@GetMapping("/customers")
 	public String getCustomers(Model model) {
 		model.addAttribute("customers", customerRepo.findAll());
 		return "customer/customers";
 	}
-	
+
+	// Gets individual customers by id.
 	@GetMapping("/customer/{id}")
 	public String customer(Model model, @PathVariable(name = "id") long id) {
 		model.addAttribute("id", id);
@@ -34,6 +35,7 @@ public class CustomerController {
 		return "customer/customer_detail";
 	}
 
+	// Gets the edit view for a single customer
 	@GetMapping("/customer/{id}/edit")
 	public String customerEdit(Model model, @PathVariable(name = "id") long id) {
 		model.addAttribute("id", id);
@@ -42,6 +44,8 @@ public class CustomerController {
 		return "customer/customer_edit";
 	}
 
+	// After the user submits in the edit view, this posts the new details and
+	// goes to the list.
 	@PostMapping("/customer/{id}/edit")
 	public String customerEditSave(@PathVariable(name = "id") long id, @ModelAttribute @Valid Customer customer,
 			BindingResult result, Model model) {
@@ -53,7 +57,8 @@ public class CustomerController {
 			return "redirect:/customer/" + customer.getId();
 		}
 	}
-	
+
+	// Gets the delete view.
 	@GetMapping("/customer/{id}/delete")
 	public String customerDelete(Model model, @PathVariable(name = "id") long id) {
 		model.addAttribute("id", id);
@@ -62,6 +67,7 @@ public class CustomerController {
 		return "customer/customer_delete";
 	}
 
+	// Deletes the customer after the user clicks submit.
 	@PostMapping("/customer/{id}/delete")
 	public String customerDeleteSave(@PathVariable(name = "id") long id, @ModelAttribute @Valid Customer customer,
 			BindingResult result, Model model) {
@@ -74,12 +80,14 @@ public class CustomerController {
 		}
 	}
 
+	// Goes to the create new user view.
 	@GetMapping("/customer/create")
 	public String customerCreate(Model model) {
 		model.addAttribute(new Customer());
 		return "customer/customer_create";
 	}
 
+	// Creates the new user.
 	@PostMapping("/customer/create")
 	public String customerCreate(@ModelAttribute @Valid Customer customer, BindingResult result, Model model) {
 
@@ -92,10 +100,4 @@ public class CustomerController {
 		}
 
 	}
-
-	
-	
-	
-	
-	
 }
